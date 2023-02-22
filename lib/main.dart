@@ -1,3 +1,4 @@
+import 'package:app4/screens/product_detail.dart';
 import 'package:flutter/material.dart';
 import 'package:app4/screens/product_description.dart';
 import 'package:app4/screens/products.dart';
@@ -15,9 +16,14 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primaryColor: Colors.purple,
+        colorScheme: ColorScheme.highContrastDark(background: Colors.black12),
+        fontFamily: 'Lato',
       ),
       home: Hey(),
+      routes: {
+        '/product_detail': (context) => Product_detail(),
+      },
     );
   }
 }

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:app4/models/product.dart';
 import 'package:app4/screens/products.dart';
+import 'package:app4/screens/product_detail.dart';
 
 // void main() => runApp(MyApp());
 
@@ -43,26 +44,24 @@ class Hey extends StatelessWidget {
   ];
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Material App',
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text('My Shop App'),
-        ),
-        body: Padding(
-          padding: const EdgeInsets.fromLTRB(10, 40, 10, 0),
-          child: GridView.builder(
-            itemCount: loadedProduct.length,
-            itemBuilder: (context, index) => Products(
-                loadedProduct[index].imageUrl,
-                loadedProduct[index].id,
-                loadedProduct[index].title),
-            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 2,
-              childAspectRatio: 3 / 2,
-              mainAxisSpacing: 10,
-              crossAxisSpacing: 10,
-            ),
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('My Shop App'),
+        backgroundColor: Theme.of(context).primaryColor,
+      ),
+      body: Padding(
+        padding: const EdgeInsets.fromLTRB(10, 40, 10, 0),
+        child: GridView.builder(
+          itemCount: loadedProduct.length,
+          itemBuilder: (context, index) => Products(
+              loadedProduct[index].imageUrl,
+              loadedProduct[index].id,
+              loadedProduct[index].title),
+          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 2,
+            childAspectRatio: 3 / 2,
+            mainAxisSpacing: 10,
+            crossAxisSpacing: 10,
           ),
         ),
       ),
